@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/jdboisvert/quotes-service-go/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -14,7 +15,7 @@ import (
 // ConnectDB : This is helper function to connect mongoDB
 // If you want to export your function. You must to start upper case function name. Otherwise you won't see your function when you import that on other class.
 func ConnectDB() *mongo.Collection {
-	config := GetConfiguration()
+	config := config.GetConfiguration()
 	// Set client options
 	clientOptions := options.Client().ApplyURI(config.ConnectionString)
 
