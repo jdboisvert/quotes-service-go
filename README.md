@@ -1,8 +1,39 @@
 # quotes-service-go
-A simple Go CRUD API for Quotes.
+A simple Go CRUD API for Quotes written in Go. For the sake of simplicity this is only using an in memory slice to hold the quote values. Quotes are immutable in this application.
 
-#### API Documentation
+## Quick Start 
+
+```
+# install golang
+brew install golang
+
+# install the golangci linter
+# more details: https://golangci-lint.run/
+brew install golangci-lint
+```
+
+### Downloading dependencies
+```
+go mod download
+```
+
+### Building Locally
+```
+# Make build
+go build main.go
+
+# Run application
+go run main.go
+```
+
+## API Documentation
 The API supports the following requests:
+- Health Check
+    - Method: GET
+    - URL: /api/health
+    - Responses: 
+        - 200: Application is healthy. 
+
 -   Create quote
     -   Method: POST
     -   URL: /api/quote
@@ -26,20 +57,6 @@ The API supports the following requests:
     -   {id}: The id of the quote in question
     -   Responses:
         -   200: Got quote successfully
-        -   404: Quote does not exist
-
-
--   Update details of a quote
-
-    -   Method: PUT
-    -   URL: /api/quote/{id}
-    -   {id}: The id of the quote in question
-    -   Parameters:
-        -   quote: Quote in question (ex: 'Live life')(required if author_name not given)
-        -   author_name: Person who the quote belongs to (ex: 'Morgan Freeman') (required if quote not given)
-    -   Responses:
-        -   200: Quote updated successfully
-            -   quote: holding details of the quote now updated
         -   404: Quote does not exist
 
 
