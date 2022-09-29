@@ -26,6 +26,12 @@ go build main.go
 go run main.go
 ```
 
+### Running unit tests
+```
+# Runs all the tests present in the tests directory
+go test -v ./tests/*.go
+```
+
 ## API Documentation
 The API supports the following requests:
 - Health Check
