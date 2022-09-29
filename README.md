@@ -26,18 +26,25 @@ go build main.go
 go run main.go
 ```
 
+### Running unit tests
+```
+# Runs all the tests present in the tests directory
+go test -v ./tests/*.go
+```
+
 ## API Documentation
 The API supports the following requests:
 - Health Check
     - Method: GET
-    - URL: /api/health
+    - URL: /health
     - Responses: 
         - 200: Application is healthy. 
 
 -   Create quote
     -   Method: POST
-    -   URL: /api/quote
+    -   URL: /api/v1/quotes
     -   Parameters:
+        -   id: The id you wish to insert (ex: "3") (required)
         -   quote: Quote in quection (ex: 'Live life')(required)
         -   author_name: Person who the quote belongs to (ex: 'Morgan Freeman') (required)
     -   Responses:
@@ -46,14 +53,14 @@ The API supports the following requests:
 
 -   Get a list of all the quotes
     -   Method: GET
-    -   URL: /api/quote
+    -   URL: /api/v1/quotes
     -   Responses:
         -   200: Get all quotes successfully
 
 
 -   Read details of a quote
     -   Method: GET
-    -   URL: /api/quote/{id}
+    -   URL: /api/v1/quotes/{id}
     -   {id}: The id of the quote in question
     -   Responses:
         -   200: Got quote successfully
@@ -62,7 +69,7 @@ The API supports the following requests:
 
 -   Delete a quote
     -   Method: DELETE
-    -   URL: /api/quote/{id}
+    -   URL: /api/v1/quotes/{id}
     -   {id}: The id of the quote in question
     -   Responses:
         -   200: Quote deleted successfully
